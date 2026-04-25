@@ -1,23 +1,56 @@
-# WitnessOps org profile receipt (bootstrap)
+# WitnessOps
 
-Trust boundary: this file is public; use it as an aid for reproduction, not as an authority.
+Verification infrastructure for governed workflows.
 
-## Artifact manifest (minimal)
-- `profile/README.md` (this file)
+WitnessOps separates authority, execution, evidence, receipt, and verification so consequential workflows can produce portable proof bundles that third parties can inspect.
 
-## Receipt schema (JSON)
-```json
-{
-  "receipt_version": 1,
-  "subject": "witnessops/.github",
-  "artifact": "profile/README.md",
-  "hash_fn": "sha256",
-  "signer": "optional",
-  "manifest_hash": "optional"
-}
+## Trust boundary
+
+This GitHub organization is a publication and source-control surface. It is not, by itself, proof of operational execution.
+
+A claim is only treated as verified when a receipt, artifact hash, signer or key reference, and verifier result are present.
+
+## Public proof path
+
+1. Protocol and reference verification materials:
+   - `witnessops-proof-reference`
+
+2. Sample proof cases:
+   - `witnessops-sample-cases`
+
+3. Public trust surface:
+   - `witnessops-web`
+
+4. Governed workflow examples:
+   - `witnessops-governed-recon`
+
+## Repository classes
+
+- Protocol and verifier reference
+- Sample proof cases
+- Public trust surface
+- Governed workflow examples
+- Compliance and control catalogs
+- Internal execution, authority, and governance systems
+
+## Verification rule
+
+Do not trust claims from README text alone. Prefer:
+
+- signed receipts
+- artifact manifests
+- schema validation
+- reproducible verifier output
+- challenge paths
+
+## Bootstrap receipt note
+
+This profile README is public and can aid reproduction, but it is not an authority by itself.
+
+Challenge path:
+
+```bash
+sha256sum profile/README.md
 ```
 
-## Challenge path
-- recompute: `sha256sum profile/README.md`
-- compare with your local copy
-- if mismatch, describe repro steps (inputs, commands, env)
+If a reproduced hash differs from a published receipt, treat the claim as untrusted until the mismatch is explained.
